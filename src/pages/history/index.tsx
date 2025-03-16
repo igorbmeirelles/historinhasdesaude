@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { getCollection } from "../../lib/firebase";
-import image from "../../assets/2.png";
 import { PlayIcon, StepBack, StepForward } from "lucide-react";
 
 interface Alignment {
@@ -15,7 +14,7 @@ interface NormalizedAlignment {
   character_start_times_seconds: number[];
 }
 
-interface AudioData {
+interface AudioSettings {
   audio_base64: string;
   alignment: Alignment;
   createdAt: {
@@ -23,6 +22,16 @@ interface AudioData {
     nanoseconds: number;
   };
   normalized_alignment: NormalizedAlignment;
+}
+
+interface AudioData {
+  audioConfig: AudioSettings;
+  createdAt: string;
+  id: string;
+  order: number;
+  text: string;
+  title: string;
+  image: string;
 }
 
 export function History() {
@@ -36,18 +45,26 @@ export function History() {
   const imageRef1 = useRef<HTMLImageElement>(null);
   const imageRef2 = useRef<HTMLImageElement>(null);
   const images = useMemo(() => [imageRef1, imageRef2], []);
+  const imageUrl1 = useRef<string>("");
+  const imageUrl2 = useRef<string>("");
+  const imagesUrl = useMemo(() => [imageUrl1, imageUrl2], []);
 
   const currentImageIndex = useRef<number>(0);
+  const currentHistoryIndex = useRef<number>(0);
 
   const audio = useMemo(async () => {
-    const querySnapshot = await getCollection("audios");
+    const querySnapshot = await getCollection(
+      "audios",
+      "pequenos-herois-contra-o-mosquito-da-dengue"
+    );
+
     const data = [] as Array<AudioData>;
 
     querySnapshot.forEach((doc) => {
       data.push(doc.data() as AudioData);
     });
 
-    return data;
+    return data.sort((a, b) => a.order - b.order);
   }, []);
 
   const renderWords = useCallback(
@@ -55,46 +72,35 @@ export function History() {
       _text_script_start: number[],
       text_script_end: number[],
       chars: string[],
-      audio: HTMLAudioElement
+      audioPlayer: HTMLAudioElement
     ) => {
       let currentIndex = 0;
       const interval = setInterval(() => {
         if (currentIndex < chars.length) {
-          if (audio.currentTime >= text_script_end[currentIndex]) {
+          if (audioPlayer.currentTime >= text_script_end[currentIndex]) {
             setCompleteText((prev) => {
               const clone = [...prev];
               clone.shift();
               return clone.join("");
             });
 
-            setTextPlaying((prev) => prev + (chars[currentIndex] ?? ""));
+            setTextPlaying((prev) => {
+              return chars.slice(0, currentIndex + 1).join("");
+            });
             currentIndex++;
           }
         } else {
           clearInterval(interval);
         }
-      }, 10);
+      }, 1);
 
       return interval;
     },
     []
   );
-
-  const animateImage = useCallback(() => {
-    const image = images[currentImageIndex.current];
-
-    image.current?.classList.add("h-auto");
-    image.current?.classList.add("mt-25");
-    image.current?.classList.add("transition-all")
-    image.current?.classList.add("-translate-y-20");
-    image.current?.classList.remove("opacity-0");
-
-    currentImageIndex.current = (currentImageIndex.current + 1) % 2;
-  }, [images]);
-
   const playAudio = useCallback(
-    (audio64: string) => {
-      const byteCharacters = atob(audio64);
+    (aud: AudioSettings) => {
+      const byteCharacters = atob(aud.audio_base64);
       const byteNumbers = new Uint8Array(byteCharacters.length);
 
       for (let i = 0; i < byteCharacters.length; i++) {
@@ -104,48 +110,59 @@ export function History() {
       const audioBlob = new Blob([byteNumbers], { type: "audio/mp3" });
       const url = URL.createObjectURL(audioBlob);
 
-      const audio = new Audio(url);
+      const audioPlayer = new Audio(url);
 
-      audio.onplay = () => {
+      audioPlayer.onplay = () => {
         if (!currentAudioMetadata) return;
 
-        animateImage();
-
         currentLabel.current = renderWords(
-          currentAudioMetadata?.character_start_times_seconds,
-          currentAudioMetadata?.character_end_times_seconds,
-          currentAudioMetadata?.characters,
-          currentAudio.current as HTMLAudioElement
+          aud?.alignment.character_start_times_seconds,
+          aud?.alignment.character_end_times_seconds,
+          aud?.alignment.characters,
+          audioPlayer
         );
       };
 
-      audio.play();
+      audioPlayer.play();
 
-      return audio;
+      return audioPlayer;
     },
-    [currentAudioMetadata, renderWords, animateImage]
+    [currentAudioMetadata, renderWords]
   );
 
-  const resetImages = useCallback(() => {
-    const image = images[(currentImageIndex.current + 1) % 2];
-
-    console.log("Antes da remoção:", image.current?.classList);
+  const hide = useCallback((image) => {
     image.current?.classList.remove("transition-all");
     image.current?.classList.add("h-0");
     image.current?.classList.add("opacity-0");
     image.current?.classList.remove("h-auto");
     image.current?.classList.remove("-translate-y-20");
     image.current?.classList.remove("mt-25");
-    console.log("Depois da remoção:", image.current?.classList);
-  }, [images]);
+  }, []);
+
+  const show = useCallback((image) => {
+    image.current?.classList.add("transition-all");
+    image.current?.classList.remove("h-0");
+    image.current?.classList.remove("opacity-0");
+    image.current?.classList.add("h-auto");
+    image.current?.classList.add("-translate-y-20");
+    image.current?.classList.add("mt-25");
+  }, []);
+
+  const resetImages = useCallback(() => {
+    const imageNext = images[(currentImageIndex.current + 1) % 2];
+    hide(imageNext);
+
+    const currentImage = images[currentImageIndex.current];
+    show(currentImage);
+  }, [images, show, hide]);
 
   const toAudio = useCallback(
-    (audio: AudioData) => {
+    (aud: AudioSettings) => {
       resetImages();
       setTextPlaying("");
-      setCompleteText(() => audio.normalized_alignment.characters.join(""));
-      setCurrentAudioMetadata(audio.normalized_alignment);
-      return playAudio(audio.audio_base64);
+      setCompleteText(() => aud.alignment.characters.join(""));
+      setCurrentAudioMetadata(aud.alignment);
+      return playAudio(aud);
     },
     [playAudio, resetImages]
   );
@@ -155,7 +172,8 @@ export function History() {
 
     const a = await audio;
 
-    currentAudio.current = toAudio(a[0]);
+    const config = a[currentHistoryIndex.current].audioConfig;
+    currentAudio.current = toAudio(config);
   }, [audio, toAudio]);
 
   function clearData() {
@@ -163,12 +181,25 @@ export function History() {
     if (currentLabel.current) clearInterval(currentLabel.current);
   }
 
+  async function playNext() {
+    const a = await audio;
+
+    currentHistoryIndex.current = (currentHistoryIndex.current + 1) % a.length;
+
+    handlePlayButton();
+  }
+
   useEffect(() => {
     let mounted = true;
 
     audio.then((aud) => {
       if (!mounted) return;
-      currentAudio.current = toAudio(aud[0]);
+      imageUrl1.current = aud[currentHistoryIndex.current].image;
+      imageUrl2.current =
+        aud[(currentHistoryIndex.current + 1) % aud.length].image;
+      currentAudio.current = toAudio(
+        aud[currentHistoryIndex.current].audioConfig
+      );
     });
 
     return () => {
@@ -196,25 +227,28 @@ export function History() {
           >
             <PlayIcon />
           </button>
-          <button className="bg-[#ffffff17] p-2 rounded-full scale-75 cursor-pointer hover:brightness-90">
+          <button
+            className="bg-[#ffffff17] p-2 rounded-full scale-75 cursor-pointer hover:brightness-90"
+            onClick={playNext}
+          >
             <StepForward />
           </button>
         </div>
 
-        <div className="d-content my-4">
+        <div className="d-content my-4 text-white">
           {textPlaying}
           <span className="invisible">{completeText}</span>
         </div>
 
         <img
-          src={image}
-          className="rounded-md transform opacity-0 duration-500 h-0"
+          src={imagesUrl[0].current}
+          className="rounded-md transform"
           ref={imageRef1}
         />
 
         <img
-          src={image}
-          className="rounded-md transform transition-all opacity-0 duration-500 h-0"
+          src={imagesUrl[1].current}
+          className="rounded-md transform"
           ref={imageRef2}
         />
       </div>

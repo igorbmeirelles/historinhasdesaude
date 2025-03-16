@@ -1,5 +1,11 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_APP_API_KEY,
@@ -15,6 +21,14 @@ const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
 
-export async function getCollection(collection_name: string) {
-  return await getDocs(collection(db, collection_name));
+export async function getCollection(
+  collection_name: string,
+  document_id: string
+) {
+  const q = query(
+    collection(db, collection_name),
+    where("id", "==", document_id)
+  );
+
+  return await getDocs(q);
 }
