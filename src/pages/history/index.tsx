@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { getCollection } from "../../lib/firebase";
-import { PlayIcon, StepBack, StepForward } from "lucide-react";
+import { ChevronLeft, PlayIcon, StepBack, StepForward } from "lucide-react";
 
 interface Alignment {
   character_start_times_seconds: number[];
@@ -195,6 +196,13 @@ export function History() {
     handlePlayButton();
   }
 
+  async function playPrev() {
+    if (currentHistoryIndex.current == 0) return;
+
+    currentHistoryIndex.current = currentHistoryIndex.current - 1;
+
+    handlePlayButton();
+  }
   useEffect(() => {
     let mounted = true;
 
@@ -223,8 +231,16 @@ export function History() {
   return (
     <div className="px-4 pt-4 min-h-dvh bg-violet-950">
       <div className="max-w-[768px] mx-auto rounded-md">
-        <div className="flex justify-center gap-2">
-          <button className="bg-[#ffffff17] p-2 rounded-full scale-75 cursor-pointer hover:brightness-90">
+        <div className="flex justify-center gap-2 items-center">
+          <div className="mr-auto">
+            <Link to="/" className="d-flex">
+              <ChevronLeft />
+            </Link>
+          </div>
+          <button
+            className="bg-[#ffffff17] p-2 rounded-full scale-75 cursor-pointer hover:brightness-90"
+            onClick={playPrev}
+          >
             <StepBack />
           </button>
           <button
@@ -234,7 +250,7 @@ export function History() {
             <PlayIcon />
           </button>
           <button
-            className="bg-[#ffffff17] p-2 rounded-full scale-75 cursor-pointer hover:brightness-90"
+            className="bg-[#ffffff17] p-2 rounded-full scale-75 cursor-pointer hover:brightness-90 mr-auto"
             onClick={playNext}
           >
             <StepForward />
