@@ -84,7 +84,7 @@ export function History() {
               return clone.join("");
             });
 
-            setTextPlaying((prev) => {
+            setTextPlaying(() => {
               return chars.slice(0, currentIndex + 1).join("");
             });
             currentIndex++;
@@ -130,7 +130,7 @@ export function History() {
     [currentAudioMetadata, renderWords]
   );
 
-  const hide = useCallback((image) => {
+  const hide = useCallback((image: React.RefObject<HTMLImageElement | null>) => {
     image.current?.classList.remove("transition-all");
     image.current?.classList.add("h-0");
     image.current?.classList.add("opacity-0");
@@ -139,7 +139,7 @@ export function History() {
     image.current?.classList.remove("mt-25");
   }, []);
 
-  const show = useCallback((image) => {
+  const show = useCallback((image: React.RefObject<HTMLImageElement | null>) => {
     image.current?.classList.add("transition-all");
     image.current?.classList.remove("h-0");
     image.current?.classList.remove("opacity-0");
@@ -241,13 +241,13 @@ export function History() {
         </div>
 
         <img
-          src={imagesUrl[0].current}
+          src={imagesUrl[0]}
           className="rounded-md transform"
           ref={imageRef1}
         />
 
         <img
-          src={imagesUrl[1].current}
+          src={imagesUrl[1]}
           className="rounded-md transform"
           ref={imageRef2}
         />
