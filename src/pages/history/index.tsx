@@ -130,23 +130,29 @@ export function History() {
     [currentAudioMetadata, renderWords]
   );
 
-  const hide = useCallback((image: React.RefObject<HTMLImageElement | null>) => {
-    image.current?.classList.remove("transition-all");
-    image.current?.classList.add("h-0");
-    image.current?.classList.add("opacity-0");
-    image.current?.classList.remove("h-auto");
-    image.current?.classList.remove("-translate-y-20");
-    image.current?.classList.remove("mt-25");
-  }, []);
+  const hide = useCallback(
+    (image: React.RefObject<HTMLImageElement | null>) => {
+      image.current?.classList.remove("transition-all");
+      image.current?.classList.add("h-0");
+      image.current?.classList.add("opacity-0");
+      image.current?.classList.remove("h-auto");
+      image.current?.classList.remove("-translate-y-20");
+      image.current?.classList.remove("mt-25");
+    },
+    []
+  );
 
-  const show = useCallback((image: React.RefObject<HTMLImageElement | null>) => {
-    image.current?.classList.add("transition-all");
-    image.current?.classList.remove("h-0");
-    image.current?.classList.remove("opacity-0");
-    image.current?.classList.add("h-auto");
-    image.current?.classList.add("-translate-y-20");
-    image.current?.classList.add("mt-25");
-  }, []);
+  const show = useCallback(
+    (image: React.RefObject<HTMLImageElement | null>) => {
+      image.current?.classList.add("transition-all");
+      image.current?.classList.remove("h-0");
+      image.current?.classList.remove("opacity-0");
+      image.current?.classList.add("h-auto");
+      image.current?.classList.add("-translate-y-20");
+      image.current?.classList.add("mt-25");
+    },
+    []
+  );
 
   const resetImages = useCallback(() => {
     const imageNext = images[(currentImageIndex.current + 1) % 2];
@@ -241,13 +247,13 @@ export function History() {
         </div>
 
         <img
-          src={imagesUrl[0]}
+          src={imagesUrl[0].current}
           className="rounded-md transform"
           ref={imageRef1}
         />
 
         <img
-          src={imagesUrl[1]}
+          src={imagesUrl[1].current}
           className="rounded-md transform"
           ref={imageRef2}
         />
