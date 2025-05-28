@@ -67,9 +67,9 @@ export function HistoryHigiene() {
     `E assim, Beto e seus amigos do Clube da Higiene aprenderam que manter o corpo limpo é divertido e importante para a saúde. Muitos coleguinhas queriam entrar no clube da higiene. Esta história foi criada para incentivar você a ter hábitos de higiene de forma divertida e educativa!`,
   ];
 
+  const [currentIndex, setCurrentIndex] = useState(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const [currentIndex, setCurrentIndex] = useState(0);
   function nextPag() {
     if (currentIndex < images.length - 1) {
       setCurrentIndex((prevIndex) => prevIndex + 1);
@@ -125,7 +125,9 @@ export function HistoryHigiene() {
         </div>
 
         <div className="my-4 text-white">
-          <p>{texts[currentIndex]}</p>
+          <p className="animate-typing overflow-hidden whitespace-nowrap border-r-white pr-5 text-5xl text-white font-bold">
+            {texts[currentIndex]}
+          </p>
         </div>
 
         <img
