@@ -1,7 +1,6 @@
+import { ChevronLeft, PlayIcon, StepBack, StepForward } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getCollection } from "../../lib/firebase";
-import { ChevronLeft, PlayIcon, StepBack, StepForward } from "lucide-react";
 
 const getAudioAsBase64 = async (path: string): Promise<string> => {
   try {

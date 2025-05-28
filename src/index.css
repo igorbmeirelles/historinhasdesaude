@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap");
 @import "tailwindcss";
 
-
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -20,7 +19,6 @@
 body {
   font-family: "Comic Neue", cursive;
 }
-
 
 .book {
   width: 200px;

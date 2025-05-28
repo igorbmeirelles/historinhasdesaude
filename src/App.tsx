@@ -1,8 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-import { Home } from "./pages/home";
-import { HistoryHigiene } from "./pages/history/higiene";
 import { History } from "./pages/history";
+import { Home } from "./pages/home";
+import { StoryPage } from "./pages/story";
 
 function App() {
   const router = createBrowserRouter([
@@ -23,8 +23,13 @@ function App() {
     },
     {
       path: "/historia/v2",
-      element: <HistoryHigiene />,
-      children: [],
+      children: [
+        {
+          path: ":storySlug",
+          element: <StoryPage />,
+          children: [],
+        },
+      ],
     },
   ]);
   return <RouterProvider router={router} />;
