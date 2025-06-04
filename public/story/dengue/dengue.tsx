@@ -27,8 +27,119 @@ const dengueStory: Story = {
   pages: [
     {
       page: 1,
-      text: "Pequenos Heróis Contra o Mosquito da Dengue",
+      text: "Bem-vindo à historinha, pequenos heróis contra o mosquito da Dengue, clique em avançar para começar a aventura de nossos amiguinhos.",
       image: "/story/dengue/images/capa.png",
+      audio: {
+        content: "/story/dengue/audios/0.mp3",
+        type: "audio/mp3",
+        wordsTimestamp: [
+          {
+            word: "Bem",
+            startAt: 0,
+            endAt: 0.46,
+          },
+          {
+            word: "-vindo",
+            startAt: 0.46,
+            endAt: 0.76,
+          },
+          {
+            word: "à",
+            startAt: 0.76,
+            endAt: 0.88,
+          },
+          {
+            word: "historinha,",
+            startAt: 0.88,
+            endAt: 1.38,
+          },
+          {
+            word: "pequenos",
+            startAt: 1.7,
+            endAt: 2.08,
+          },
+          {
+            word: "heróis",
+            startAt: 2.08,
+            endAt: 2.48,
+          },
+          {
+            word: "contra",
+            startAt: 2.48,
+            endAt: 2.74,
+          },
+          {
+            word: "o",
+            startAt: 2.74,
+            endAt: 2.84,
+          },
+          {
+            word: "mosquito",
+            startAt: 2.84,
+            endAt: 3.22,
+          },
+          {
+            word: "da",
+            startAt: 3.22,
+            endAt: 3.4,
+          },
+          {
+            word: "dengue,",
+            startAt: 3.4,
+            endAt: 3.74,
+          },
+          {
+            word: "clique",
+            startAt: 4.1,
+            endAt: 4.3,
+          },
+          {
+            word: "em",
+            startAt: 4.3,
+            endAt: 4.48,
+          },
+          {
+            word: "avançar",
+            startAt: 4.48,
+            endAt: 5,
+          },
+          {
+            word: "para",
+            startAt: 5,
+            endAt: 5.18,
+          },
+          {
+            word: "começar",
+            startAt: 5.18,
+            endAt: 5.62,
+          },
+          {
+            word: "a",
+            startAt: 5.62,
+            endAt: 5.76,
+          },
+          {
+            word: "aventura",
+            startAt: 5.76,
+            endAt: 6.18,
+          },
+          {
+            word: "de",
+            startAt: 6.18,
+            endAt: 6.34,
+          },
+          {
+            word: "nossos",
+            startAt: 6.34,
+            endAt: 6.66,
+          },
+          {
+            word: "amiguinhos.",
+            startAt: 6.66,
+            endAt: 7.32,
+          },
+        ],
+      },
     },
     {
       page: 2,

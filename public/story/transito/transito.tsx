@@ -27,8 +27,119 @@ const transitoStory: Story = {
   pages: [
     {
       page: 1,
-      text: "A Aventura de Pedro e Ana no Trânsito Seguro",
+      text: "Bem-vindo à aventura de Pedro e Ana no Trânsito Seguro. Clique em Avançar para começar a aventura de nossos amiguinhos.",
       image: "/story/transito/images/capa.png",
+      audio: {
+        content: "/story/transito/audios/0.mp3",
+        type: "audio/mp3",
+        wordsTimestamp: [
+          {
+            word: "Bem",
+            startAt: 0,
+            endAt: 0.44,
+          },
+          {
+            word: "-vindo",
+            startAt: 0.44,
+            endAt: 0.72,
+          },
+          {
+            word: "à",
+            startAt: 0.72,
+            endAt: 0.8,
+          },
+          {
+            word: "aventura",
+            startAt: 0.8,
+            endAt: 1.26,
+          },
+          {
+            word: "de",
+            startAt: 1.26,
+            endAt: 1.42,
+          },
+          {
+            word: "Pedro",
+            startAt: 1.42,
+            endAt: 1.82,
+          },
+          {
+            word: "e",
+            startAt: 1.82,
+            endAt: 2.08,
+          },
+          {
+            word: "Ana",
+            startAt: 2.08,
+            endAt: 2.3,
+          },
+          {
+            word: "no",
+            startAt: 2.3,
+            endAt: 2.5,
+          },
+          {
+            word: "Trânsito",
+            startAt: 2.5,
+            endAt: 2.88,
+          },
+          {
+            word: "Seguro.",
+            startAt: 2.88,
+            endAt: 3.4,
+          },
+          {
+            word: "Clique",
+            startAt: 3.56,
+            endAt: 3.96,
+          },
+          {
+            word: "em",
+            startAt: 3.96,
+            endAt: 4.1,
+          },
+          {
+            word: "Avançar",
+            startAt: 4.1,
+            endAt: 4.58,
+          },
+          {
+            word: "para",
+            startAt: 4.58,
+            endAt: 4.8,
+          },
+          {
+            word: "começar",
+            startAt: 4.8,
+            endAt: 5.22,
+          },
+          {
+            word: "a",
+            startAt: 5.22,
+            endAt: 5.38,
+          },
+          {
+            word: "aventura",
+            startAt: 5.38,
+            endAt: 5.82,
+          },
+          {
+            word: "de",
+            startAt: 5.82,
+            endAt: 5.96,
+          },
+          {
+            word: "nossos",
+            startAt: 5.96,
+            endAt: 6.26,
+          },
+          {
+            word: "amiguinhos.",
+            startAt: 6.26,
+            endAt: 6.98,
+          },
+        ],
+      },
     },
     {
       page: 2,

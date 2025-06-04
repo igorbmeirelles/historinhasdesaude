@@ -27,8 +27,109 @@ const higieneStory: Story = {
   pages: [
     {
       page: 1,
-      text: "Beto e o Clube da Higiene",
+      text: "Olá, vamos começar a historinha de Beto e o Clube da Higiene. Clique em Avançar para iniciar a aventura.",
       image: "/story/higiene/images/capa.png",
+      audio: {
+        content: "/story/higiene/audios/0.mp3",
+        type: "audio/mp3",
+        wordsTimestamp: [
+          {
+            word: "Olá,",
+            startAt: 0,
+            endAt: 0.48,
+          },
+          {
+            word: "vamos",
+            startAt: 0.88,
+            endAt: 1.16,
+          },
+          {
+            word: "começar",
+            startAt: 1.16,
+            endAt: 1.6,
+          },
+          {
+            word: "a",
+            startAt: 1.6,
+            endAt: 1.76,
+          },
+          {
+            word: "historinha",
+            startAt: 1.76,
+            endAt: 2.12,
+          },
+          {
+            word: "de",
+            startAt: 2.12,
+            endAt: 2.26,
+          },
+          {
+            word: "Beto",
+            startAt: 2.26,
+            endAt: 2.66,
+          },
+          {
+            word: "e",
+            startAt: 2.66,
+            endAt: 2.72,
+          },
+          {
+            word: "o",
+            startAt: 2.72,
+            endAt: 2.82,
+          },
+          {
+            word: "Clube",
+            startAt: 2.82,
+            endAt: 3.12,
+          },
+          {
+            word: "da",
+            startAt: 3.12,
+            endAt: 3.26,
+          },
+          {
+            word: "Higiene.",
+            startAt: 3.26,
+            endAt: 3.72,
+          },
+          {
+            word: "Clique",
+            startAt: 3.98,
+            endAt: 4.32,
+          },
+          {
+            word: "em",
+            startAt: 4.32,
+            endAt: 4.46,
+          },
+          {
+            word: "Avançar",
+            startAt: 4.46,
+            endAt: 4.94,
+          },
+          {
+            word: "para",
+            startAt: 4.94,
+            endAt: 5.14,
+          },
+          {
+            word: "iniciar",
+            startAt: 5.14,
+            endAt: 5.62,
+          },
+          {
+            word: "a",
+            startAt: 5.62,
+            endAt: 5.66,
+          },
+          {
+            word: "aventura.",
+            startAt: 5.66,
+            endAt: 6.12,
+          },
+        ],
+      },
     },
     {
       page: 2,

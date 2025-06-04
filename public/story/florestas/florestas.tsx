@@ -27,8 +27,99 @@ const florestasStory: Story = {
   pages: [
     {
       page: 1,
-      text: "Tupã, o protetor das florestas e matas",
+      text: "Bem-vindo à história de Tupã, o protetor das florestas e matas. Clique em Avançar para começar.",
       image: "/story/florestas/images/capa.png",
+      audio: {
+        content: "/story/florestas/audios/0.mp3",
+        type: "audio/mp3",
+        wordsTimestamp: [
+          {
+            word: "Bem",
+            startAt: 0,
+            endAt: 0.46,
+          },
+          {
+            word: "-vindo",
+            startAt: 0.46,
+            endAt: 0.76,
+          },
+          {
+            word: "à",
+            startAt: 0.76,
+            endAt: 0.88,
+          },
+          {
+            word: "história",
+            startAt: 0.88,
+            endAt: 1.16,
+          },
+          {
+            word: "de",
+            startAt: 1.16,
+            endAt: 1.32,
+          },
+          {
+            word: "Tupã,",
+            startAt: 1.32,
+            endAt: 1.7,
+          },
+          {
+            word: "o",
+            startAt: 1.98,
+            endAt: 2.14,
+          },
+          {
+            word: "protetor",
+            startAt: 2.14,
+            endAt: 2.66,
+          },
+          {
+            word: "das",
+            startAt: 2.66,
+            endAt: 2.84,
+          },
+          {
+            word: "florestas",
+            startAt: 2.84,
+            endAt: 3.34,
+          },
+          {
+            word: "e",
+            startAt: 3.34,
+            endAt: 3.48,
+          },
+          {
+            word: "matas.",
+            startAt: 3.48,
+            endAt: 3.88,
+          },
+          {
+            word: "Clique",
+            startAt: 4.14,
+            endAt: 4.4,
+          },
+          {
+            word: "em",
+            startAt: 4.4,
+            endAt: 4.52,
+          },
+          {
+            word: "Avançar",
+            startAt: 4.52,
+            endAt: 5.02,
+          },
+          {
+            word: "para",
+            startAt: 5.02,
+            endAt: 5.24,
+          },
+          {
+            word: "começar.",
+            startAt: 5.24,
+            endAt: 5.68,
+          },
+        ],
+      },
     },
     {
       page: 2,
