@@ -1,4 +1,4 @@
-import { ChevronLeft, PlayIcon, StepBack, StepForward } from "lucide-react";
+import { ChevronLeft, RotateCcw, StepBack, StepForward } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import alimentosStory from "../../public/story/alimentos/alimentos";
@@ -117,7 +117,8 @@ export function StoryPage() {
   useEffect(() => {
     if (!audioRef.current) return;
     audioRef.current.load();
-    if (currentIndex !== 0) playAudio();
+    //if (currentIndex !== 0) playAudio();
+    playAudio();
   }, [currentIndex, playAudio]);
 
   useEffect(() => {
@@ -144,17 +145,19 @@ export function StoryPage() {
               <ChevronLeft />
             </Link>
           </div>
-          <button
-            onClick={goToPreviousPage}
-            className="bg-[#ffffff17] p-2 rounded-full scale-75 cursor-pointer hover:brightness-90"
-          >
-            <StepBack />
-          </button>
+          {currentIndex !== 0 && (
+            <button
+              onClick={goToPreviousPage}
+              className="bg-[#ffffff17] p-2 rounded-full scale-75 cursor-pointer hover:brightness-90"
+            >
+              <StepBack />
+            </button>
+          )}
           <button
             onClick={playAudio}
             className="bg-amber-500 p-2 rounded-full cursor-pointer hover:brightness-90"
           >
-            <PlayIcon />
+            <RotateCcw />
           </button>
           <button
             onClick={goToNextPage}

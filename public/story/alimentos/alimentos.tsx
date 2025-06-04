@@ -27,8 +27,104 @@ const alimentosStory: Story = {
   pages: [
     {
       page: 1,
-      text: "Mia e o Reino dos Alimentos Saudáveis",
+      text: "Olá, vamos começar a historinha de Mia e o Reino dos Alimentos Saudáveis. Clique em Avançar para iniciar.",
       image: "/story/alimentos/images/capa.png",
+      audio: {
+        content: "/story/alimentos/audios/0.mp3",
+        type: "audio/mp3",
+        wordsTimestamp: [
+          {
+            word: "Olá,",
+            startAt: 0,
+            endAt: 0.48,
+          },
+          {
+            word: "vamos",
+            startAt: 0.88,
+            endAt: 1.18,
+          },
+          {
+            word: "começar",
+            startAt: 1.18,
+            endAt: 1.64,
+          },
+          {
+            word: "a",
+            startAt: 1.64,
+            endAt: 1.76,
+          },
+          {
+            word: "historinha",
+            startAt: 1.76,
+            endAt: 2.16,
+          },
+          {
+            word: "de",
+            startAt: 2.16,
+            endAt: 2.34,
+          },
+          {
+            word: "Mia",
+            startAt: 2.34,
+            endAt: 2.62,
+          },
+          {
+            word: "e",
+            startAt: 2.62,
+            endAt: 2.76,
+          },
+          {
+            word: "o",
+            startAt: 2.76,
+            endAt: 2.84,
+          },
+          {
+            word: "Reino",
+            startAt: 2.84,
+            endAt: 3.12,
+          },
+          {
+            word: "dos",
+            startAt: 3.12,
+            endAt: 3.32,
+          },
+          {
+            word: "Alimentos",
+            startAt: 3.32,
+            endAt: 3.74,
+          },
+          {
+            word: "Saudáveis.",
+            startAt: 3.74,
+            endAt: 4.38,
+          },
+          {
+            word: "Clique",
+            startAt: 4.64,
+            endAt: 4.98,
+          },
+          {
+            word: "em",
+            startAt: 4.98,
+            endAt: 5.1,
+          },
+          {
+            word: "Avançar",
+            startAt: 5.1,
+            endAt: 5.62,
+          },
+          {
+            word: "para",
+            startAt: 5.62,
+            endAt: 5.82,
+          },
+          {
+            word: "iniciar.",
+            startAt: 5.82,
+            endAt: 6.36,
+          },
+        ],
+      },
     },
     {
       page: 2,
