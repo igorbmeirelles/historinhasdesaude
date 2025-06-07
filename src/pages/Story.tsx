@@ -6,6 +6,13 @@ import higieneStory from "../../public/story/higiene/higiene";
 import florestasStory from "../../public/story/florestas/florestas";
 import dengueStory from "../../public/story/dengue/dengue";
 import transitoStory from "../../public/story/transito/transito";
+import vacinaStory from "../../public/story/vacina/vacina";
+import piolhoStory from "../../public/story/piolho/piolho";
+import jardimStory from "../../public/story/jardim/jardim";
+import amizadeStory from "../../public/story/amizade/amizade";
+import oculosStory from "../../public/story/oculos/oculos";
+import telaStory from "../../public/story/tela/tela";
+import recreioStory from "../../public/story/recreio/recreio";
 // TODO: Delay para aparecer o texto
 
 type Audio = {
@@ -37,6 +44,13 @@ const stories = [
   florestasStory,
   dengueStory,
   transitoStory,
+  vacinaStory,
+  piolhoStory,
+  jardimStory,
+  amizadeStory,
+  oculosStory,
+  telaStory,
+  recreioStory,
 ];
 
 export function StoryPage() {
