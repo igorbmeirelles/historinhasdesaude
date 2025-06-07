@@ -13,9 +13,19 @@ const storySlugs: Story[] = [
     image: "/story/dengue/images/capa.png",
   },
   {
+    title: "2: Brincadeiras legais no recreio",
+    slug: "brincadeiras-recreio",
+    image: "/story/recreio/images/capa.jpeg",
+  },
+  {
     title: "3: Mia e o Reino dos Alimentos Saudáveis",
     slug: "mia-alimentos",
     image: "/story/alimentos/images/capa.png",
+  },
+  {
+    title: "4: Lili e o Poder da Amizade",
+    slug: "lili-amizade",
+    image: "/story/amizade/images/capa.png",
   },
   {
     title: "5: A Aventura de Pedro e Ana no Trânsito Seguro",
@@ -28,9 +38,34 @@ const storySlugs: Story[] = [
     image: "/story/higiene/images/capa.png",
   },
   {
+    title: "7: Nina e a Magia das Vacinas",
+    slug: "nina-vacinas",
+    image: "/story/vacina/images/capa.jpg",
+  },
+  {
+    title: "8: Os Óculos de Luísa e seu Amigo Léo",
+    slug: "oculos-luisa",
+    image: "/story/oculos/images/capa.png",
+  },
+  {
+    title: "9: A Aventura de João e a Tela Mágica",
+    slug: "tela-magica",
+    image: "/story/tela/images/capa.png",
+  },
+  {
+    title: "10: A história de Lucas no combate aos piolhos",
+    slug: "lucas-piolho",
+    image: "/story/piolho/images/capa.png",
+  },
+  {
     title: "11: Tupã, o Protetor das Florestas e Matas",
     slug: "tupa-florestas",
     image: "/story/florestas/images/capa.png",
+  },
+  {
+    title: "12: O Jardim da Mente",
+    slug: "jardim-mente",
+    image: "/story/jardim/images/capa.png",
   },
 ];
 
