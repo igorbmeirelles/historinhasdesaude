@@ -5,12 +5,12 @@ export function Footer() {
   };
 
   const partnerLogos: Logo[] = [
-    { name: "ciencia", image: "/images/ciencia.png" },
-    { name: "uff", image: "/images/uff.png" },
-    { name: "pensu", image: "/images/pensu.png" },
-    { name: "proex", image: "/images/proex.png" },
     { name: "labmapps", image: "/images/labmapps.png" },
     { name: "espaco", image: "/images/espaco.png" },
+    { name: "ciencia", image: "/images/ciencia.png" },
+    { name: "pensu", image: "/images/pensu.png" },
+    { name: "uff", image: "/images/uff.png" },
+    { name: "proex", image: "/images/proex.png" },
   ];
 
   return (
