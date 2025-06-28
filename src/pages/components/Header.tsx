@@ -1,4 +1,5 @@
 import { ExternalLink, Users, Heart } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function Header() {
   return (
@@ -30,15 +31,13 @@ export function Header() {
               <ExternalLink className="w-4 h-4" />
               Historinhas PDF
             </a>
-            <a
-              href="https://drive.google.com/file/d/1czf7OXihcXHRwnS2_DO2XExLeyr5izou/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to={"/equipe"}
               className="flex items-center gap-2 text-white hover:text-black px-4 py-2 rounded hover:bg-yellow-500/20 hover:scale-105 transition-all duration-300 hover:shadow-md hover:shadow-yellow-500/20"
             >
               <Users className="w-4 h-4" />
               Equipe Envolvida
-            </a>
+            </Link>
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLSeUXFTe7qbXnhkAWwUs6-mXe7cel3irzR-krhFQir0-J8Rxpw/viewform"
               target="_blank"
