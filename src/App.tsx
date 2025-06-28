@@ -3,6 +3,7 @@ import "./App.css";
 //import { History } from "./pages/history";
 import { Home } from "./pages/home";
 import { StoryPage } from "./pages/Story";
+import { Equipe } from "./pages/Equipe";
 
 function App() {
   const router = createBrowserRouter([
@@ -20,6 +21,11 @@ function App() {
           children: [],
         },
       ],
+    },
+    {
+      path: "/equipe",
+      element: <Equipe />,
+      children: [],
     },
   ]);
   return <RouterProvider router={router} />;
