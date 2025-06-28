@@ -5,22 +5,22 @@ export function Equipe() {
     {
       nome: "Igor Barreto Meirelles",
       descricao: "Acad. Ciências da Computação/ Cederj-UFF",
-      foto: "/public/images/igor.png",
+      foto: "/images/igor.png",
     },
     {
       nome: "Pedro Marcolino Faria da Costa",
       descricao: "Acad. Ciências da Computação / Cederj-UFF",
-      foto: "/public/images/pedro.png",
+      foto: "/images/pedro.png",
     },
     {
       nome: "Maria Rita Jardim da Silva",
       descricao: "Acad. Enfermagem / EEAAC-UFF",
-      foto: "/public/images/maria.png",
+      foto: "/images/maria.png",
     },
     {
       nome: "Jorge Luiz Lima",
       descricao: "Prof. Saúde Coletiva e Políticas Públicas - MEP e PPGSC -UFF",
-      foto: "/public/images/jorge.png",
+      foto: "/images/jorge.png",
     },
   ];
 
