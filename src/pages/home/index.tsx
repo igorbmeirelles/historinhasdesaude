@@ -4,7 +4,7 @@ import { Main } from "../components/Main";
 
 export function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-950 via-purple-900 to-purple-800 flex flex-col">
+    <div className="min-h-screen bg-[#3b0764] flex flex-col">
       <Header />
       <Main />
       <Footer />
