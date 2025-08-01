@@ -151,18 +151,18 @@ export function StoryPage() {
   }
 
   return (
-    <div className="px-4 pt-4 pb-20 min-h-dvh bg-violet-950">
+    <div className="px-4 pt-4 pb-20 min-h-dvh bg-[#3b0764]">
       <div className="max-w-[768px] mx-auto rounded-md">
-        <div className="flex justify-center gap-2 items-center">
+        <div className="flex justify-center gap-3 items-center">
           <div className="mr-auto">
-            <Link to="/" className="d-flex">
+            <Link to="/" className="d-flex text-white hover:opacity-80">
               <ChevronLeft />
             </Link>
           </div>
           {currentIndex !== 0 && (
             <button
               onClick={goToPreviousPage}
-              className="bg-[#ffffff17] p-2 rounded-full scale-75 cursor-pointer hover:brightness-90"
+              className="bg-red-500 p-2 rounded-full cursor-pointer hover:brightness-90"
             >
               <StepBack />
             </button>
@@ -173,12 +173,20 @@ export function StoryPage() {
           >
             <RotateCcw />
           </button>
-          <button
-            onClick={goToNextPage}
-            className="bg-[#ffffff17] p-2 rounded-full scale-75 cursor-pointer hover:brightness-90 mr-auto"
-          >
-            <StepForward />
-          </button>
+          {currentIndex < story.pages.length - 1 ? (
+            <button
+              onClick={goToNextPage}
+              className="bg-green-500 p-2 rounded-full cursor-pointer hover:brightness-90 mr-auto"
+            >
+              <StepForward />
+            </button>
+          ) : (
+            <div className="p-2 mr-auto"></div>
+          )}
+
+          <div className="text-white text-sm opacity-70">
+            Página {currentIndex + 1} de {story.pages.length}
+          </div>
         </div>
 
         <div className="my-4 text-white min-h-20">

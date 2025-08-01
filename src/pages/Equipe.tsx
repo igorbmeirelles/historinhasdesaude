@@ -13,6 +13,11 @@ export function Equipe() {
       foto: "/images/pedro.png",
     },
     {
+      nome: "Matheus Marcolino Faria da Costa",
+      descricao: "Acad. Ciências da Computação / Cederj-UFF",
+      foto: "/images/matheus.png",
+    },
+    {
       nome: "Maria Rita Jardim da Silva",
       descricao: "Acad. Enfermagem / EEAAC-UFF",
       foto: "/images/maria.png",
@@ -58,7 +63,7 @@ export function Equipe() {
           <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
             Equipe Envolvida
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
             {equipe.map((membro, index) => (
               <div key={index} className="text-center space-y-4">
                 <div className="mx-auto w-32 h-40 rounded-full overflow-hidden border-4 border-blue-200 shadow-lg">
