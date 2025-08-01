@@ -1,4 +1,4 @@
-import { ChevronLeft, RotateCcw, StepBack, StepForward } from "lucide-react";
+import { Home, RotateCcw, StepBack, StepForward } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import alimentosStory from "../../public/story/alimentos/alimentos";
@@ -153,39 +153,55 @@ export function StoryPage() {
   return (
     <div className="px-4 pt-4 pb-20 min-h-dvh bg-[#3b0764]">
       <div className="max-w-[768px] mx-auto rounded-md">
-        <div className="flex justify-center gap-3 items-center">
-          <div className="mr-auto">
-            <Link to="/" className="d-flex text-white hover:opacity-80">
-              <ChevronLeft />
+        <div className="flex flex-col items-center gap-3 text-white">
+          {/* Row for back button and page indicator, pushed to ends */}
+          <div className="flex justify-between items-center w-full">
+            <Link
+              to="/"
+              className="text-white hover:opacity-80 flex items-center gap-1"
+            >
+              <Home className="w-4 h-4" />
+              <span>Menu</span>
             </Link>
+            <div className="text-sm opacity-70">
+              Página {currentIndex + 1} de {story.pages.length}
+            </div>
           </div>
-          {currentIndex !== 0 && (
-            <button
-              onClick={goToPreviousPage}
-              className="bg-red-500 p-2 rounded-full cursor-pointer hover:brightness-90"
-            >
-              <StepBack />
-            </button>
-          )}
-          <button
-            onClick={playAudio}
-            className="bg-amber-500 p-2 rounded-full cursor-pointer hover:brightness-90"
-          >
-            <RotateCcw />
-          </button>
-          {currentIndex < story.pages.length - 1 ? (
-            <button
-              onClick={goToNextPage}
-              className="bg-green-500 p-2 rounded-full cursor-pointer hover:brightness-90 mr-auto"
-            >
-              <StepForward />
-            </button>
-          ) : (
-            <div className="p-2 mr-auto"></div>
-          )}
 
-          <div className="text-white text-sm opacity-70">
-            Página {currentIndex + 1} de {story.pages.length}
+          {/* Row for control buttons, centered horizontally */}
+          <div className="flex justify-center items-center gap-3 mt-2">
+            {currentIndex !== 0 ? (
+              <button
+                onClick={goToPreviousPage}
+                className="bg-red-500 p-2 rounded-full hover:brightness-90 cursor-pointer"
+              >
+                <StepBack size={24} />
+              </button>
+            ) : (
+              // Invisible placeholder to maintain layout when button is not present
+              <div className="p-2 rounded-full invisible">
+                <StepBack size={24} />
+              </div>
+            )}
+            <button
+              onClick={playAudio}
+              className="bg-amber-500 p-2 rounded-full hover:brightness-90 cursor-pointer"
+            >
+              <RotateCcw size={24} />
+            </button>
+            {currentIndex < story.pages.length - 1 ? (
+              <button
+                onClick={goToNextPage}
+                className="bg-green-500 p-2 rounded-full hover:brightness-90 cursor-pointer"
+              >
+                <StepForward size={24} />
+              </button>
+            ) : (
+              // Invisible placeholder to maintain layout when button is not present
+              <div className="p-2 rounded-full invisible">
+                <StepForward size={24} />
+              </div>
+            )}
           </div>
         </div>
 
