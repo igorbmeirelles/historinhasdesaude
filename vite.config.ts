@@ -39,6 +39,7 @@ export default defineConfig({
         globPatterns: [
           "**/*.{js,css,html,ico,png,svg,webmanifest,txt,mp3,ogg,jpg,jpeg}",
         ],
+        navigateFallback: "/index.html", // arquivo _redirects
       },
     }),
   ],
