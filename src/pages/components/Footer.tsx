@@ -13,7 +13,7 @@ export function Footer() {
     },
     {
       name: "espaco",
-      image: "/images/espaco.png",
+      image: "/images/espaco.jpeg",
       link: "https://www.instagram.com/espacoabertosaudeuff/",
     },
     {
@@ -21,8 +21,16 @@ export function Footer() {
       image: "/images/ciencia.png",
       link: "https://www.youtube.com/c/Ci%C3%AAnciaSa%C3%BAdeUFF",
     },
-    { name: "porque será", image: "images/porquesera.png", link: "/" },
-    { name: "pensu", image: "/images/pensu.png", link: "/" },
+    {
+      name: "porque será",
+      image: "images/porquesera.png",
+      link: "https://linktr.ee/pensu",
+    },
+    {
+      name: "pensu",
+      image: "/images/pensu.jpeg",
+      link: "https://linktr.ee/pensu",
+    },
     {
       name: "enfermagem",
       image: "/images/enfermagem.png",
@@ -31,7 +39,7 @@ export function Footer() {
     {
       name: "proex",
       image: "/images/proex.png",
-      link: " https://www.uff.br/proex/",
+      link: "https://www.instagram.com/proexuff?igsh=OTdudmhtd2Q3cWRp",
     },
     { name: "uff", image: "/images/uff.png", link: "https://www.uff.br/" },
   ];

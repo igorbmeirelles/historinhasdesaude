@@ -4,17 +4,17 @@ export function Equipe() {
   const equipe = [
     {
       nome: "Igor Barreto Meirelles",
-      descricao: "Acad. Ciências da Computação/ Cederj-UFF",
+      descricao: "Acad. Sistemas da Computação/ Cederj-UFF",
       foto: "/images/igor.png",
     },
     {
       nome: "Pedro Marcolino Faria da Costa",
-      descricao: "Acad. Ciências da Computação / Cederj-UFF",
+      descricao: "Acad. Sistemas da Computação / Cederj-UFF",
       foto: "/images/pedro.png",
     },
     {
       nome: "Matheus Marcolino Faria da Costa",
-      descricao: "Acad. Ciências da Computação / Cederj-UFF",
+      descricao: "Acad. Sistemas da Computação / Cederj-UFF",
       foto: "/images/matheus.png",
     },
     {
