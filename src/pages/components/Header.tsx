@@ -20,7 +20,7 @@ export function Header() {
               className="flex items-center gap-2 text-white hover:text-white px-4 py-2 rounded hover:bg-purple-400/20 hover:scale-105 transition-all duration-300 hover:shadow-md hover:shadow-purple-400/20"
             >
               <ExternalLink className="w-4 h-4" />
-              Visite Labmapps
+              Visite LabMapps
             </a>
             <a
               href="https://drive.google.com/file/d/1zDLWlleXspf97u_NLxyEDVmP4x3zJ_Wy/view"
