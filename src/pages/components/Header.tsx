@@ -48,7 +48,7 @@ export function Header() {
               Vote na Favorita
             </a>
             <a
-              href="https://gemini.google.com/share/80fac8286078"
+              href="https://gemini.google.com/share/fca950531c8e"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-white hover:text-white px-4 py-2 rounded hover:bg-purple-400/20 hover:scale-105 transition-all duration-300 hover:shadow-md hover:shadow-purple-400/20"
