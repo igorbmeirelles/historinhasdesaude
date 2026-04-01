@@ -48,13 +48,13 @@ export function Header() {
               Vote na Favorita
             </a>
             <a
-              href="https://gemini.google.com/share/dd69d7c44fc5"
+              href="https://gemini.google.com/share/622a45bcf822"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-white hover:text-white px-4 py-2 rounded hover:bg-purple-400/20 hover:scale-105 transition-all duration-300 hover:shadow-md hover:shadow-purple-400/20"
             >
               <Pencil className="w-4 h-4" />
-              Crie seu Personagem
+              Crie Seu Personagem
             </a>
           </div>
         </div>
